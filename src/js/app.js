@@ -1,11 +1,6 @@
 export function outputSpecialAttacks({ special }) {
-  const result = [];
-  special.map((item) => {
-    const newItem = { ...item };
-    if (!newItem.hasOwnProperty("description")) {
-      newItem.description = "Описание недоступно";
-    }
-    result.push(newItem);
+  return special.map((item) => {
+    const { id, name, icon, description = "Описание недоступно"} = item;
+    return { id, name, description, icon };
   });
-  return result;
 }
